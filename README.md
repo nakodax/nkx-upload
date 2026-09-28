@@ -2,9 +2,19 @@
 
 **nkx-upload is a command-line tool from [NakodaX](https://nakodax.com) that encrypts video and audio recordings on your computer and uploads them to your [NakodaX box](https://box.nakodax.com) drive.** It takes files up to 5 GB, which is past the browser's 500 MB limit. It runs on macOS, Windows and Linux.
 
-Recordings are locked with AES-256-GCM before they leave your computer, and NakodaX never sees them unlocked. Once uploaded, a recording plays and shares from box like any other protected document.
+Recordings are encrypted before they leave your computer. Once uploaded, a recording plays and shares from box like any other protected document, and you decide who can open it and for how long.
 
 > **Status:** the first public release is on its way. The install commands below work once it is published.
+
+## About NakodaX
+
+NakodaX helps you keep control of sensitive work after you share it. It protects documents, media, data and software with encryption and permission checks at the point of use, so you can change, limit or revoke access at any time, even after content has been shared or downloaded. NakodaX does not store or access the readable version of your content.
+
+**NakodaX box** is the document-protection product: protect contracts, presentations, PDFs, spreadsheets and recordings, then share them with the people who need them.
+
+- [nakodax.com](https://nakodax.com)
+- [Document protection](https://nakodax.com/documents)
+- [Open NakodaX box](https://box.nakodax.com)
 
 ## Install
 
@@ -26,7 +36,14 @@ brew install nakodax/tap/nkx-upload
 powershell -ExecutionPolicy ByPass -c "irm https://box.nakodax.com/install.ps1 | iex"
 ```
 
-No admin rights are needed. The script checks the download against the release's `SHA256SUMS` before installing it:
+Or with [Scoop](https://scoop.sh):
+
+```powershell
+scoop bucket add nakodax https://github.com/nakodax/scoop-bucket
+scoop install nakodax/nkx-upload
+```
+
+No admin rights are needed. The install script checks the download against the release's `SHA256SUMS` before installing it:
 
 - **macOS and Linux:** `~/.local/bin`
 - **Windows:** `%LOCALAPPDATA%\nkx-upload`, added to your user `PATH`
@@ -39,14 +56,14 @@ nkx-upload upload "board meeting.mov"     # one or more files
 ```
 
 1. `login` opens your browser. Sign in to box, check the code matches the one in your terminal, and press **Approve**.
-2. `upload` locks each file on your computer, uploads it and prints a link to open it in box.
+2. `upload` encrypts each file on your computer, uploads it and prints a link to open it in box.
 
 ## Commands
 
 | Command | What it does |
 |---|---|
 | `nkx-upload login` | Sign in through your browser. Add `--no-browser` on a machine without one. |
-| `nkx-upload upload <files…>` | Lock and upload video or audio files, up to 5 GB each |
+| `nkx-upload upload <files…>` | Encrypt and upload video or audio files, up to 5 GB each |
 | `nkx-upload status` | Show who you are signed in as, and when the sign-in ends |
 | `nkx-upload logout` | Sign out on this computer, and end the sign-in in box |
 | `nkx-upload update` | Install the latest version |
@@ -58,28 +75,27 @@ nkx-upload upload "board meeting.mov"     # one or more files
 - **Audio:** `.mp3`, `.m4a`, `.aac`, `.wav`, `.flac`, `.ogg`, `.oga`, `.opus`, `.wma`, `.aiff`, `.aif`
 - **Size:** up to 5 GB per file
 
-Where it can, the tool repackages a video as a streaming MP4 so it starts playing before it has fully downloaded. It copies the audio and video as they are, so quality does not change and nothing is re-encoded. This needs free disk space about the size of the file, and it happens on your computer.
+The tool prepares each video so it starts playing in box before it has fully downloaded. It doesn't re-encode, so quality stays the same. This needs free disk space about the size of the file.
 
-## How it keeps recordings private
+## Privacy and security
 
-- **Encrypted before upload.** Each file is locked with its own AES-256-GCM key, in the same format box uses in the browser.
-- **Straight to storage.** The encrypted file goes directly to cloud storage over HTTPS; it does not pass through NakodaX's servers.
+- **Encrypted on your computer.** Files are encrypted with AES-256 before any part of them is uploaded, and they stay encrypted in storage.
 - **No password in the terminal.** You sign in in your own browser and approve a short code, so the tool never sees your password.
-- **Upload only.** The sign-in can add recordings to your drive and nothing else. It cannot open, download, share or delete anything, including files it uploaded.
+- **Upload only.** The sign-in can add recordings to your drive and nothing else. It can't open, download, share or delete anything.
 - **Ends on its own.** A sign-in lasts 30 days, and changing your box password ends it early. You can end it any time in box under **Settings → Profile → Command-line sign-ins**.
-- **Stored privately.** The sign-in is saved only to your user account's config folder, readable by you alone:
+- **Stored privately.** The sign-in is saved to your own config folder, readable only by your user account:
   - macOS and Linux: `~/.config/nkx-upload`
   - Windows: `%APPDATA%\nkx-upload`
 
 ## If your connection drops
 
-The tool keeps going. It resends from the point your connection dropped, and it waits up to an hour for the network to come back. Press **Ctrl-C** to cancel: nothing is kept, and the file uses no storage.
+The tool keeps going. It picks up from where it stopped, and it waits up to an hour for the network to come back. Press **Ctrl-C** to cancel; nothing is kept.
 
 If you close the terminal or restart your computer mid-upload, run the command again.
 
 ## Verify a download
 
-Every release file is signed with [Sigstore cosign](https://docs.sigstore.dev) in NakodaX's build pipeline, with no long-lived signing key. To check a file yourself:
+Every release file is signed with [Sigstore cosign](https://docs.sigstore.dev). To check a file yourself:
 
 ```bash
 cosign verify-blob \
@@ -94,8 +110,8 @@ Every release also has a `SHA256SUMS` file for a plain checksum.
 
 ## Update and uninstall
 
-- **Update:** `nkx-upload update`, or `brew upgrade nkx-upload`. The tool tells you when a newer version is out.
-- **Uninstall:** run `nkx-upload logout`, then delete the binary and the config folder. With Homebrew, run `brew uninstall nkx-upload` instead of deleting the binary.
+- **Update:** run `nkx-upload update`, `brew upgrade nkx-upload` or `scoop update nkx-upload`. The tool tells you when a newer version is out.
+- **Uninstall:** run `nkx-upload logout`, then delete the binary and the config folder. With Homebrew or Scoop, run `brew uninstall nkx-upload` or `scoop uninstall nkx-upload` instead of deleting the binary.
 
 ## FAQ
 
@@ -105,19 +121,19 @@ Install nkx-upload, run `nkx-upload login` once, then run `nkx-upload upload <fi
 
 ### Is nkx-upload free?
 
-The tool is free to download and use with a NakodaX box account. Each uploaded file uses one protection from your plan, the same as an upload in the browser.
+Yes. The tool is free to use with a NakodaX box account. Each file you upload counts toward your plan, the same as an upload in the browser.
 
 ### Can NakodaX see my recording?
 
-No. The file is encrypted on your computer before any of it is uploaded, and it stays encrypted in storage. Only people you give access to in box can play it.
+No. The file is encrypted on your computer before it is uploaded, and it stays encrypted in storage. Only you and the people you share it with in box can play it.
 
 ### Can someone who steals my sign-in read my files?
 
-No. A command-line sign-in can only upload. It cannot open, download or share anything. If you think a sign-in has been exposed, end it in **Settings → Profile** and it stops working straight away.
+No. A command-line sign-in can only upload. It can't open, download or share anything. If you think a sign-in has been exposed, end it in **Settings → Profile** and it stops working straight away.
 
 ### What happens if my internet connection drops during an upload?
 
-The upload pauses and carries on from the same point when the connection returns, for up to an hour. Press Ctrl-C to cancel; nothing is kept.
+The upload pauses and picks up from where it stopped when the connection comes back, for up to an hour. Press Ctrl-C to cancel; nothing is kept.
 
 ### Which operating systems does nkx-upload support?
 
@@ -125,21 +141,21 @@ macOS on Apple silicon and Intel, Windows 10 and 11 (64-bit), and Linux on x64 a
 
 ### Why install with a command instead of a download link?
 
-A file that is installed by a command, rather than downloaded in a browser, does not get the "downloaded from the internet" mark. That mark is what makes macOS and Windows block unsigned apps. The install script checks every file against the release's `SHA256SUMS` instead, and every file is also signed with cosign (see **Verify a download**).
+A file installed by a command doesn't get the "downloaded from the internet" mark that makes macOS and Windows block apps. The install script checks each file against the release's `SHA256SUMS` instead, and every file is also signed (see **Verify a download**).
 
 ### Does it work behind a company firewall?
 
-It needs HTTPS access to `box-api.nakodax.com` and to `storage.googleapis.com`. Some managed devices block any app that isn't code-signed by Apple or Microsoft. If yours does, [contact support](https://nakodax.com/support).
+Usually, yes. It only needs outbound HTTPS. Some managed devices block any app that isn't code-signed by Apple or Microsoft. If yours does, or you need the addresses to allow, [contact support](https://nakodax.com/support).
 
 ### Is nkx-upload open source?
 
-No. This repository publishes signed release binaries only. The tool uses [mediabunny](https://github.com/Vanilagy/mediabunny) (MPL-2.0) to repackage video.
+No. This repository publishes signed release binaries only. Third-party components and their licences are listed in `THIRD_PARTY_NOTICES.txt` in each release.
 
 ## Support
 
 - **Help and questions:** [nakodax.com/support](https://nakodax.com/support)
-- **Use box in your browser:** [box.nakodax.com](https://box.nakodax.com)
-- **About document protection:** [nakodax.com/documents](https://nakodax.com/documents)
+- **LinkedIn:** [linkedin.com/company/nakodax](https://www.linkedin.com/company/nakodax)
+- **X:** [x.com/nakodax](https://x.com/nakodax)
 
 ## License
 
