@@ -4,8 +4,6 @@
 
 Recordings are encrypted before they leave your computer. Once uploaded, a recording plays and shares from box like any other protected document, and you decide who can open it and for how long.
 
-> **Status:** the first public release is on its way. The install commands below work once it is published.
-
 ## About NakodaX
 
 NakodaX helps you keep control of sensitive work after you share it. It protects documents, media, data and software with encryption and permission checks at the point of use, so you can change, limit or revoke access at any time, even after content has been shared or downloaded. NakodaX does not store or access the readable version of your content.
