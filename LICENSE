@@ -1,32 +1,76 @@
-NakodaX Proprietary Software License Notice
+NAKODAX BINARY SOFTWARE LICENSE AGREEMENT
 
-Copyright (c) 2026 NakodaX Technologies Private Limited. All rights reserved.
+Copyright (c) 2026 NakodaX Technologies Private Limited ("NakodaX").
+All rights reserved.
 
-This repository distributes compiled binaries, documentation and related
-materials for NakodaX command-line tools. The tools are proprietary software.
-Their source code is not published here and is not licensed under an
-open-source license.
+This agreement covers the compiled command-line software, documentation and
+related materials distributed through this repository, the NakodaX Homebrew
+tap, the NakodaX Scoop bucket and box.nakodax.com (together, the "Software").
+The source code of the Software is proprietary, is not published, and is not
+licensed under any open-source license.
 
-Permission is granted to download and use the official release binaries from
-this repository, solely to access and use NakodaX products and services, under
-the NakodaX Terms of Service at https://nakodax.com/terms.
+1. LICENSE GRANT
+NakodaX grants you a limited, non-exclusive, non-transferable, non-sublicensable,
+revocable license to download, install and run official, unmodified copies of
+the Software, solely to access and use NakodaX products and services in
+accordance with the NakodaX Terms of Service (https://nakodax.com/terms).
+Use of the Software with a NakodaX account or deployment is subject to those
+terms and to your plan.
 
-Except as permitted above or by applicable law, you may not:
-  - copy, modify or create derivative works of the software or its binaries;
-  - redistribute, sublicense, sell or rent the software, other than through
-    NakodaX's official distribution channels (this repository, the NakodaX
-    Homebrew tap, the NakodaX Scoop bucket and box.nakodax.com);
-  - reverse engineer, decompile or disassemble the software, except to the
-    extent that applicable law expressly allows this despite this restriction;
-  - remove or alter any copyright, licensing or signature information.
+2. RESTRICTIONS
+Except as this agreement or applicable law expressly permits, you must not:
+  (a) copy, modify, adapt, translate or create derivative works of the Software;
+  (b) sell, rent, lease, sublicense, or redistribute the Software, other than
+      by pointing others to NakodaX's official distribution channels;
+  (c) reverse engineer, decompile or disassemble the Software, or attempt to
+      derive its source code, except to the extent applicable law grants this
+      right despite this restriction;
+  (d) remove, obscure or alter any copyright, license, signature or
+      attribution notice;
+  (e) use the Software to build a competing product or service, or to
+      circumvent, disable or interfere with any access control, permission
+      check, licensing or security feature of NakodaX products;
+  (f) use the Software in violation of applicable law.
 
-Documentation in this repository may be copied for the purpose of using the
-software as permitted above.
+3. OWNERSHIP
+The Software is licensed, not sold. NakodaX and its licensors retain all right,
+title and interest in the Software, including all intellectual property
+rights. No rights are granted except those expressly stated in this agreement.
+If you send NakodaX feedback or suggestions, NakodaX may use them without
+restriction or obligation to you.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. TO THE MAXIMUM EXTENT
-PERMITTED BY LAW, NAKODAX TECHNOLOGIES PRIVATE LIMITED SHALL NOT BE LIABLE FOR
-ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+4. THIRD-PARTY COMPONENTS
+The Software may include third-party components that are licensed under their
+own terms. Those terms apply to those components only, and nothing in this
+agreement limits your rights under them.
 
-Questions about licensing: info@nakodax.com
+5. DOCUMENTATION
+You may copy and share the documentation in this repository for the purpose of
+using the Software as permitted by this agreement.
+
+6. TERMINATION
+This agreement ends automatically if you breach it, or when your right to use
+NakodaX services ends. On termination you must stop using the Software and
+delete all copies of it. Sections 2, 3, 7, 8 and 9 survive termination.
+
+7. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. NAKODAX DOES NOT
+WARRANT THAT THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR-FREE.
+
+8. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, NAKODAX WILL NOT BE LIABLE FOR ANY
+INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR FOR LOSS
+OF PROFITS, DATA OR GOODWILL, ARISING FROM OR RELATED TO THE SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NAKODAX'S TOTAL LIABILITY UNDER
+THIS AGREEMENT WILL NOT EXCEED THE AMOUNT YOU PAID NAKODAX FOR THE SERVICES
+WITH WHICH THE SOFTWARE WAS USED IN THE TWELVE MONTHS BEFORE THE CLAIM AROSE.
+NOTHING IN THIS AGREEMENT EXCLUDES LIABILITY THAT CANNOT BE EXCLUDED BY LAW.
+
+9. GENERAL
+This agreement is governed by the laws of India, without regard to its conflict
+of law rules. Where it conflicts with the NakodaX Terms of Service for the
+same subject matter, the Terms of Service prevail. If any provision is held
+unenforceable, the rest remains in effect. Questions about this license:
+info@nakodax.com
