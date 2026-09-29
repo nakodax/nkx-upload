@@ -1,0 +1,32 @@
+NakodaX Proprietary Software License Notice
+
+Copyright (c) 2026 NakodaX Technologies Private Limited. All rights reserved.
+
+This repository distributes compiled binaries, documentation and related
+materials for NakodaX command-line tools. The tools are proprietary software.
+Their source code is not published here and is not licensed under an
+open-source license.
+
+Permission is granted to download and use the official release binaries from
+this repository, solely to access and use NakodaX products and services, under
+the NakodaX Terms of Service at https://nakodax.com/terms.
+
+Except as permitted above or by applicable law, you may not:
+  - copy, modify or create derivative works of the software or its binaries;
+  - redistribute, sublicense, sell or rent the software, other than through
+    NakodaX's official distribution channels (this repository, the NakodaX
+    Homebrew tap, the NakodaX Scoop bucket and box.nakodax.com);
+  - reverse engineer, decompile or disassemble the software, except to the
+    extent that applicable law expressly allows this despite this restriction;
+  - remove or alter any copyright, licensing or signature information.
+
+Documentation in this repository may be copied for the purpose of using the
+software as permitted above.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. TO THE MAXIMUM EXTENT
+PERMITTED BY LAW, NAKODAX TECHNOLOGIES PRIVATE LIMITED SHALL NOT BE LIABLE FOR
+ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+
+Questions about licensing: info@nakodax.com
